@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Service.starlink.ke</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -17,62 +18,85 @@
             color: #fff;
         }
         .container {
-            background-color: #ffffff;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
             padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
             text-align: center;
-            max-width: 420px;
+            max-width: 450px;
             width: 90%;
-            color: #333;
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
         h1 {
-            font-size: 26px;
-            margin-bottom: 20px;
-            color: #148122;
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #12ff40;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         .payment-info {
             margin-bottom: 20px;
             font-size: 18px;
             font-weight: bold;
-            color: #555;
-            background: #e0f7da;
-            padding: 8px;
-            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.2);
         }
         button {
             border: none;
-            padding: 12px;
+            padding: 14px;
             font-size: 16px;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
             margin: 10px 0;
             width: 100%;
             font-weight: bold;
-            transition: 0.3s;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 255, 0, 0.4);
+            text-transform: uppercase;
+            position: relative;
         }
         button:hover {
-            transform: scale(1.05);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 255, 0, 0.6);
         }
         .payment-btn {
-            background: #148122;
+            background: linear-gradient(90deg, #12ff40, #0a8f1f);
             color: #ffffff;
         }
         .payment-btn:hover {
-            background: #0f7b0f;
+            background: linear-gradient(90deg, #0a8f1f, #12ff40);
+        }
+        .loading-spinner {
+            display: none;
+            width: 16px;
+            height: 16px;
+            border: 3px solid rgba(255, 255, 255, 0.5);
+            border-top: 3px solid #ffffff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
+        }
+        @keyframes spin {
+            0% { transform: translateY(-50%) rotate(0deg); }
+            100% { transform: translateY(-50%) rotate(360deg); }
         }
         .inquiry {
             margin-top: 20px;
             font-size: 16px;
-            color: #444;
-            background: #f8f8f8;
+            background: rgba(255, 255, 255, 0.1);
             padding: 12px;
             border-radius: 8px;
-            box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1);
+            box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.2);
         }
         .email {
-            color: #007bff;
+            color: #00ff99;
             font-weight: bold;
             text-decoration: none;
         }
@@ -81,8 +105,18 @@
         }
     </style>
     <script>
-        function redirectToPayment(url) {
-            window.location.href = url;
+        function processPayment(button, url) {
+            button.disabled = true;
+            button.innerHTML = "Wait... Processing";
+            
+            let spinner = document.createElement("div");
+            spinner.classList.add("loading-spinner");
+            button.appendChild(spinner);
+            spinner.style.display = "inline-block";
+
+            setTimeout(() => {
+                window.location.href = url;
+            }, 5000);
         }
     </script>
 </head>
@@ -90,13 +124,12 @@
     <div class="container">
         <h1>Select a Package</h1>
         <div class="payment-info">Starlink Home <i>(Only Safaricom)</i></div>
-        
-        <button class="payment-btn" onclick="redirectToPayment('https://payment.intasend.com/pay/c6cb15d7-559a-4aa9-aa41-e198cf4564b0/')">24 Hours - 7GB (Ksh 130)</button>
-        <button class="payment-btn" onclick="redirectToPayment('https://payment.intasend.com/pay/51b5caaa-d2f2-4762-9d63-7ca13972431e/')">7 Days - 12GB (Ksh 300)</button>
-        <button class="payment-btn" onclick="redirectToPayment('https://payment.intasend.com/pay/20bbdb1e-7cf4-4ef9-b7be-a8b7ae01f582/')">14 Days - 22GB (Ksh 550)</button>
-        <button class="payment-btn" onclick="redirectToPayment('https://payment.intasend.com/pay/30fb785c-bd4c-4ad3-ad30-d3afd9b74fe4/')">21 Days - 35GB (Ksh 750)</button>
-        <button class="payment-btn" onclick="redirectToPayment('https://payment.intasend.com/pay/55ef9a9d-ecc5-4a29-bb03-ca3505438ed9/')">30 Days - 50GB (Ksh 900)</button>
-        <button class="payment-btn" onclick="redirectToPayment('https://payment.intasend.com/pay/84ec5f9d-df18-4e8a-8427-bf95d222644e/')">6 Months - Unlimited (Ksh 4000)</button>
+
+        <button class="payment-btn" onclick="processPayment(this, 'https://short.payhero.co.ke/s/HfS9BMXDKLqB6xKTdADtPw')">24 Hours - 7GB (Ksh 120)</button>
+        <button class="payment-btn" onclick="processPayment(this, 'https://short.payhero.co.ke/s/Q2Grvrs2jkQtsnxaC3qYuR')">7 Days - 22GB (Ksh250)</button>
+        <button class="payment-btn" onclick="processPayment(this, 'https://short.payhero.co.ke/s/h33T9pnw86drT3BDYo4fVP')">21 Days - 35GB (Ksh 550)</button>
+        <button class="payment-btn" onclick="processPayment(this, 'https://short.payhero.co.ke/s/BxBAXLqZSpE5QoEcLy2fAA')">30 Days - 50GB (Ksh 900)</button>
+        <button class="payment-btn" onclick="processPayment(this, 'https://short.payhero.co.ke/s/nYRYqwADkRTwTyMdzgZ9oK')">6 Months - Unlimited (Ksh 2000)</button>
 
         <div class="inquiry">
             <p>In case of inquiry, contact us at:</p>
@@ -104,4 +137,4 @@
         </div>
     </div>
 </body>
-</html>
+    </html>
