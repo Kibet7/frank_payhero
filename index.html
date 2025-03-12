@@ -98,11 +98,11 @@
     </style>
     <script>
         function showPaymentPrompt(amount) {
-            alert(`Pay Ksh ${amount} to till 8600480`);
+            alert(`Pay Ksh ${amount} to till 4883478`);
         }
         
         function copyTillNumber() {
-            navigator.clipboard.writeText("8600480").then(() => {
+            navigator.clipboard.writeText("4883478").then(() => {
                 alert("Till number copied!");
             }).catch(err => {
                 alert("Failed to copy: " + err);
@@ -121,7 +121,7 @@
         <button class="payment-btn" onclick="showPaymentPrompt(900)">30 Days - 50GB (Ksh 900)</button>
         <button class="payment-btn" onclick="showPaymentPrompt(4000)">6 Months - Unlimited (Ksh 2000)</button>
         
-        <div class="till-info">Till Number: <strong>8600480</strong></div>
+        <div class="till-info">Till Number: <strong>4883478</strong></div>
         <button class="copy-btn" onclick="copyTillNumber()">Copy Till</button>
 
         <div class="inquiry">
