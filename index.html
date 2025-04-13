@@ -62,6 +62,22 @@
         .payment-btn:hover {
             background: #0f7b0f;
         }
+        .copy-btn {
+            background: #ff9800;
+            color: #fff;
+        }
+        .copy-btn:hover {
+            background: #e68900;
+        }
+        .till-info {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #148122;
+            font-weight: bold;
+            background: #e0f7da;
+            padding: 10px;
+            border-radius: 6px;
+        }
         .inquiry {
             margin-top: 20px;
             font-size: 16px;
@@ -81,26 +97,36 @@
         }
     </style>
     <script>
-        function redirectToPayment(url) {
-            window.location.href = url;
+        function showPaymentPrompt(amount) {
+            alert(`Pay Ksh ${amount} to till 8600480`);
+        }
+        
+        function copyTillNumber() {
+            navigator.clipboard.writeText("8600480").then(() => {
+                alert("Till number copied!");
+            }).catch(err => {
+                alert("Failed to copy: " + err);
+            });
         }
     </script>
 </head>
 <body>
     <div class="container">
         <h1>Select a Package</h1>
-        <div class="payment-info">Starlink Home <i>(Only Safaricom)</i></div>
+        <div class="payment-info">Home satellite bundles <i>(Only Safaricom)</i></div>  
+        <button class="payment-btn" onclick="showPaymentPrompt(49)">24 Hours - 2GB (Ksh 49)</button>
+        <button class="payment-btn" onclick="showPaymentPrompt(99)">7 Days - 7GB (Ksh 99)</button>
+        <button class="payment-btn" onclick="showPaymentPrompt(199)">14 Days - 22GB (Ksh 199)</button>
+        <button class="payment-btn" onclick="showPaymentPrompt(399)">21 Days - 35GB (Ksh 399)</button>
+        <button class="payment-btn" onclick="showPaymentPrompt(699)">30 Days - 50GB (Ksh 699)</button>
+        <button class="payment-btn" onclick="showPaymentPrompt(850)">1 Month - Unlimited (Ksh 850)</button>
         
-        <button class="payment-btn" onclick="redirectToPayment('https://paystack.com/pay/lcm4j6wwli')">24 Hours - 7GB (Ksh 80)</button>
-        <button class="payment-btn" onclick="redirectToPayment('https://paystack.com/pay/ymsinlfv3v')">7 Days - 12GB (Ksh 200)</button>
-        <button class="payment-btn" onclick="redirectToPayment('https://paystack.com/pay/oci4s6afre')">14 Days - 22GB (Ksh 550)</button>
-        <button class="payment-btn" onclick="redirectToPayment('https://paystack.com/pay/6rvy4vrlal')">21 Days - 35GB (Ksh 750)</button>
-        <button class="payment-btn" onclick="redirectToPayment('https://paystack.com/pay/sz7y2oh7-n')">30 Days - 50GB (Ksh 900)</button>
-        <button class="payment-btn" onclick="redirectToPayment('https://paystack.com/pay/4clqjyzgup')">6 Months - Unlimited (Ksh 1000)</button>
+        <div class="till-info">Till Number: <strong>8600480</strong></div>
+        <button class="copy-btn" onclick="copyTillNumber()">Copy Till</button>
 
         <div class="inquiry">
             <p>In case of inquiry, contact us at:</p>
-            <a href="mailto:starrlinkhelp@gmail.com" class="email">support@starlink.ke</a>
+            <a href="mailto:starrlinkg@gmail.com" class="email">support@homeinternet.ke</a>
         </div>
     </div>
 </body>
