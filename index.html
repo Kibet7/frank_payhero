@@ -3,71 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Purchase Starlink Home packages in Kenya - Fast and reliable internet service">
-    <title>Starlink Kenya - Service Packages</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>StarNet Kenya - Affordable Internet Packages</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #12ff40;
-            --secondary-color: #0a8f1f;
-            --dark-bg: #000000;
-            --light-text: #ffffff;
-            --accent-color: #00ff99;
-            --glass-bg: rgba(255, 255, 255, 0.1);
-            --glass-border: rgba(255, 255, 255, 0.2);
+            --primary: #6a11cb;
+            --secondary: #2575fc;
+            --accent: #ff5e62;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
         }
         
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #0f9b0f, var(--dark-bg));
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: var(--light-text);
+            background-color: #f5f7fa;
+            color: var(--dark);
             line-height: 1.6;
         }
         
-        .container {
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        hr {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(to right, rgba(106, 17, 203, 0.1), rgba(106, 17, 203, 0.5), rgba(106, 17, 203, 0.1));
+            margin: 2rem 5%;
+        }
+        
+        .section-title {
             text-align: center;
-            max-width: 500px;
-            width: 95%;
-            margin: 2rem auto;
-            color: var(--light-text);
-            border: 1px solid var(--glass-border);
-            transition: transform 0.3s ease;
+            margin-bottom: 2rem;
         }
         
-        .container:hover {
-            transform: translateY(-5px);
-        }
-        
-        h1 {
-            font-size: 1.8rem;
-            margin-bottom: 1.2rem;
-            color: var(--primary-color);
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary);
             position: relative;
+            display: inline-block;
             padding-bottom: 0.5rem;
         }
         
-        h1::after {
+        .section-title h2::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -75,287 +56,1038 @@
             transform: translateX(-50%);
             width: 80px;
             height: 3px;
-            background: var(--primary-color);
+            background: linear-gradient(to right, var(--primary), var(--secondary));
             border-radius: 3px;
         }
         
-        .payment-info {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
+        /* Navigation */
+        nav {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 1rem 5%;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 0.5rem;
+            color: var(--accent);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+            position: relative;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border-radius: 0.5rem;
+            z-index: 1;
+            top: 100%;
+            left: 0;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .dropdown-content a {
+            color: var(--dark);
+            padding: 12px 16px;
+            display: block;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #f8f9fa;
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(106, 17, 203, 0.9), rgba(37, 117, 252, 0.9)), url('https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 5rem 5%;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
             font-weight: 600;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 0.8rem;
-            border-radius: 8px;
-            box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Packages Section */
+        .packages-section {
+            padding: 4rem 5%;
+            text-align: center;
+        }
+        
+        .company-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .company-header h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-right: 1rem;
+        }
+        
+        .satellite {
+            font-size: 2rem;
+        }
+        
+        .payment-info {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
         }
         
         .payment-info i {
-            font-style: italic;
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-        
-        .toggle-instructions {
-            background: rgba(0, 0, 0, 0.3);
-            padding: 0.8rem;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            border: 1px solid var(--glass-border);
-        }
-        
-        .toggle-instructions:hover {
-            background: rgba(0, 0, 0, 0.4);
-        }
-        
-        .toggle-instructions::after {
-            content: '▼';
-            font-size: 0.8rem;
-            margin-left: 0.5rem;
-            transition: transform 0.3s ease;
-        }
-        
-        .toggle-instructions.active::after {
-            transform: rotate(180deg);
-        }
-        
-        .instructions {
-            background: rgba(0, 0, 0, 0.3);
-            padding: 0;
-            border-radius: 8px;
-            margin-bottom: 1.5rem;
-            text-align: left;
-            font-size: 0.95rem;
-            border-left: 3px solid var(--primary-color);
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-        
-        .instructions.show {
-            padding: 1rem;
-            max-height: 500px;
-        }
-        
-        .instructions h3 {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
             font-size: 1rem;
+            color: var(--gray);
         }
         
-        .instructions ol {
-            padding-left: 1.2rem;
+        .packages-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            max-width: 600px;
+            margin: 0 auto 3rem;
         }
         
-        .instructions li {
-            margin-bottom: 0.5rem;
+        .package-row {
+            display: contents;
         }
         
-        .btn-container {
+        .package-btn {
+            background: white;
+            border: 2px solid var(--primary);
+            border-radius: 15px;
+            padding: 1.2rem 0.5rem;
             display: flex;
             flex-direction: column;
-            gap: 0.8rem;
-            margin: 1.5rem 0;
-        }
-        
-        button {
-            border: none;
-            padding: 1rem;
-            font-size: 1rem;
-            border-radius: 10px;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             cursor: pointer;
-            font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0, 255, 0, 0.4);
-            text-transform: uppercase;
+            opacity: 0;
+            transform: translateY(20px);
             position: relative;
             overflow: hidden;
         }
         
-        .payment-btn {
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            color: var(--light-text);
-        }
-        
-        .payment-btn:hover {
-            background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(0, 255, 0, 0.6);
-        }
-        
-        .payment-btn:active {
-            transform: translateY(1px);
-        }
-        
-        .payment-btn::before {
+        .package-btn::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: 0.5s;
-        }
-        
-        .payment-btn:hover::before {
-            left: 100%;
-        }
-        
-        .loading-spinner {
-            display: none;
-            width: 16px;
-            height: 16px;
-            border: 3px solid rgba(255, 255, 255, 0.5);
-            border-top: 3px solid var(--light-text);
+            top: -10px;
+            right: -10px;
+            width: 30px;
+            height: 30px;
+            background: var(--primary);
             border-radius: 50%;
-            animation: spin 1s linear infinite;
-            position: absolute;
-            top: 50%;
-            right: 15px;
-            transform: translateY(-50%);
+            opacity: 0.2;
         }
         
-        @keyframes spin {
-            0% { transform: translateY(-50%) rotate(0deg); }
-            100% { transform: translateY(-50%) rotate(360deg); }
+        .package-btn::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: -15px;
+            width: 40px;
+            height: 40px;
+            background: var(--secondary);
+            border-radius: 50%;
+            opacity: 0.2;
+        }
+        
+        .package-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-color: var(--secondary);
+        }
+        
+        .package-btn span:first-child {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .package-btn span:last-child {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
         }
         
         .inquiry {
-            margin-top: 1.5rem;
-            font-size: 1rem;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 1rem;
-            border-radius: 8px;
-            box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.2);
+            margin-top: 2rem;
+            color: var(--gray);
         }
         
-        .email {
-            color: var(--accent-color);
-            font-weight: 600;
+        .inquiry a {
+            color: var(--primary);
             text-decoration: none;
-            display: inline-block;
-            margin-top: 0.5rem;
-            transition: all 0.3s ease;
+            font-weight: 600;
         }
         
-        .email:hover {
+        .inquiry a:hover {
             text-decoration: underline;
-            transform: scale(1.05);
         }
         
-        .logo {
-            width: 80px;
+        /* Reviews Section */
+        .reviews {
+            padding: 4rem 5%;
+            background-color: #f8f9fa;
+        }
+        
+        .reviews-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .review-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .review-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stars {
+            color: #FFD700;
             margin-bottom: 1rem;
-            filter: drop-shadow(0 0 5px rgba(18, 255, 64, 0.5));
+        }
+        
+        .review-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .reviewer {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .reviewer-title {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-top: 0.3rem;
+        }
+        
+        /* Why Choose Us Section */
+        .why-choose {
+            padding: 4rem 5%;
+            background: linear-gradient(135deg, rgba(106, 17, 203, 0.03), rgba(37, 117, 252, 0.03));
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .feature-card p {
+            color: var(--gray);
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 90vh;
+            padding: 2rem;
+            position: relative;
+            animation: modalOpen 0.3s forwards;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        @keyframes modalOpen {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray);
+        }
+        
+        .close-modal:hover {
+            color: var(--dark);
+        }
+        
+        .instructions {
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            overflow-y: auto;
+            flex-grow: 1;
+        }
+        
+        .instructions h3 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .instructions ol {
+            padding-left: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .instructions li {
+            margin-bottom: 0.5rem;
+            text-align: left;
+        }
+        
+        .till-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid #eee;
+        }
+        
+        .till-label {
+            font-weight: 600;
+        }
+        
+        .till-number {
+            display: flex;
+            align-items: center;
+        }
+        
+        .till-number span {
+            font-weight: 700;
+            margin-right: 1rem;
+            color: var(--primary);
+        }
+        
+        .copy-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.3rem 0.8rem;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+        
+        .copy-btn i {
+            margin-right: 0.3rem;
+        }
+        
+        .proceed-btn {
+            width: 100%;
+            padding: 0.8rem;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .proceed-btn i {
+            margin-right: 0.5rem;
+        }
+        
+        /* Collapsible instructions */
+        .collapsible {
+            background-color: #f8f9fa;
+            color: var(--primary);
+            cursor: pointer;
+            padding: 1rem;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-weight: bold;
+            border-radius: 8px;
+            margin: 1rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .collapsible:after {
+            content: '\002B';
+            color: var(--primary);
+            font-weight: bold;
+            float: right;
+            margin-left: 5px;
+            transition: transform 0.3s;
+        }
+        
+        .collapsible.active:after {
+            content: "\2212";
+        }
+        
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background-color: #f8f9fa;
+            border-radius: 0 0 8px 8px;
+        }
+        
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            z-index: 1001;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .toast.show {
+            opacity: 1;
+        }
+        
+        .toast i {
+            margin-right: 0.5rem;
+            color: #4CAF50;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 5% 1rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            position: relative;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--primary);
+        }
+        
+        .footer-column p {
+            margin-bottom: 1rem;
+            color: #adb5bd;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a, .footer-links li {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-links a:hover, .footer-links li:hover {
+            color: white;
+        }
+        
+        .footer-links i {
+            margin-right: 0.5rem;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #adb5bd;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-links li {
+                margin: 0.5rem 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .company-header h1 {
+                font-size: 2rem;
+            }
+            
+            .packages-container {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 500px;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .package-btn {
+                padding: 1rem 0.5rem;
+            }
+            
+            .package-btn span:first-child {
+                font-size: 0.9rem;
+            }
+            
+            .package-btn span:last-child {
+                font-size: 1.1rem;
+            }
         }
         
         @media (max-width: 480px) {
-            .container {
+            .packages-container {
+                grid-template-columns: repeat(2, 1fr); /* Changed from 1fr to repeat(2, 1fr) */
+                max-width: 300px;
+                gap: 0.8rem; /* Added gap for better spacing */
+            }
+            
+            .package-btn {
+                padding: 0.8rem 0.3rem; /* Adjusted padding for smaller screens */
+            }
+            
+            .package-btn span:first-child {
+                font-size: 0.8rem; /* Slightly smaller font for mobile */
+            }
+            
+            .package-btn span:last-child {
+                font-size: 1rem; /* Slightly smaller font for mobile */
+            }
+            
+            .modal-content {
+                width: 95%;
                 padding: 1.5rem;
             }
             
-            h1 {
-                font-size: 1.5rem;
-            }
-            
-            button {
-                padding: 0.8rem;
-                font-size: 0.9rem;
+            .instructions {
+                padding: 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Add your logo here if available -->
-        <!-- <img src="logo.png" alt="Starlink Kenya Logo" class="logo"> -->
+    <!-- Navigation -->
+    <nav>
+        <div class="navbar">
+            <a href="#" class="logo">
+                <i class="fas fa-rocket"></i>
+                StarNet Kenya
+            </a>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li class="dropdown">
+                    <a href="#">Packages <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#packages">Daily Packages</a>
+                        <a href="#packages">Weekly Packages</a>
+                        <a href="#packages">Monthly Packages</a>
+                    </div>
+                </li>
+               
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Affordable Internet Packages</h1>
+        <p>Get high-speed internet at the most competitive prices in Kenya. Available on all networks with instant activation.</p>
+        <a href="#packages" class="btn">View Packages</a>
+    </section>
+    
+    <hr>
+    
+    <!-- Packages Section -->
+    <section id="packages" class="packages-section">
+        <div class="company-header">
+            <h1>STARNET KENYA</h1>
+            <div class="satellite">🛰️</div>
+        </div>
+        <div class="payment-info">Affordable Internet Packages <i>(Available on all networks)</i></div>
         
-        <h1>Select a Package</h1>
-        <div class="payment-info">Starlink Home <i>(Only Safaricom M-Pesa)</i></div>
+        <div class="packages-container">
+            <!-- First Column -->
+            <button class="package-btn" onclick="showPaymentInstructions('1 Day - 2GB (Ksh 49)', 'https://short.payhero.co.ke/s/kGCnKJqdgB67g7KPyjSmtE')">
+                <span>1 Day - 2GB</span>
+                <span>Ksh 49</span>
+            </button>
+            <button class="package-btn" onclick="showPaymentInstructions('3 Days - 5GB (Ksh 59)', 'https://short.payhero.co.ke/s/BYH8n69bNYxLeDaCXHU2Kb')">
+                <span>3 Days - 5GB</span>
+                <span>Ksh 59</span>
+            </button>
+            <button class="package-btn" onclick="showPaymentInstructions('7 Days - 10GB (Ksh 69)', 'https://short.payhero.co.ke/s/Gf4MQaAbgDDuGRHFjKK2L7')">
+                <span>7 Days - 10GB</span>
+                <span>Ksh 69</span>
+            </button>
+            <button class="package-btn" onclick="showPaymentInstructions('14 Days - 25GB (Ksh 79)', 'https://short.payhero.co.ke/s/Sq3gDEX2pZ3v3PpNhVMMjN')">
+                <span>14 Days - 25GB</span>
+                <span>Ksh 79</span>
+            </button>
+            
+            <!-- Second Column -->
+            <button class="package-btn" onclick="showPaymentInstructions('30 Days - Unlimited (Ksh 99)', 'https://short.payhero.co.ke/s/PArdBrgGSeBGuFeZTVHuS6')">
+                <span>30 Days - Unlimited</span>
+                <span>Ksh 99</span>
+            </button>
+            <button class="package-btn" onclick="showPaymentInstructions('60 Days - Unlimited (Ksh 180)', 'https://short.payhero.co.ke/s/FaQaq2RuwBfXCAhAup3LCQ')">
+                <span>60 Days - Unlimited</span>
+                <span>Ksh 180</span>
+            </button>
+            <button class="package-btn" onclick="showPaymentInstructions('90 Days - Unlimited (Ksh 250)', 'https://short.payhero.co.ke/s/METKqsMRnefviunLnjvbY9')">
+                <span>90 Days - Unlimited</span>
+                <span>Ksh 250</span>
+            </button>
+            <button class="package-btn" onclick="showPaymentInstructions('120 Days - Unlimited (Ksh 320)', 'https://short.payhero.co.ke/s/jjzyjAdm8fqykPWxqRKcUc')">
+                <span>120 Days - Unlimited</span>
+                <span>Ksh 320</span>
+            </button>
+        </div>     
 
-        <div class="toggle-instructions" id="toggleInstructions">
-            How to Purchase Data ▼
+    </section>
+    
+    <hr>
+    
+    <!-- Reviews Section -->
+    <section class="reviews">
+        <div class="section-title">
+            <h2>What Our Customers Say</h2>
         </div>
         
-        <div class="instructions" id="instructions">
-            <h3>How to Purchase Data from Starlink</h3>
-            <ol>
-                <li>Select your preferred data package below</li>
-                <li>Proceed to the checkout page</li>
-                <li>Complete payment through M-Pesa</li>
+        <div class="reviews-container">
+            <!-- Review 1 -->
+            <div class="review-card">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">"I've been using StarNet for my daily internet needs and it's been reliable and affordable. The 1 Day package is perfect for my usage."</p>
+                <div class="reviewer">Sarah Wanjiku</div>
+                <div class="reviewer-title">University Student</div>
+            </div>
+            
+            <!-- Review 2 -->
+            <div class="review-card">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">"The unlimited monthly package has transformed my small business. I can now video call clients without worrying about data."</p>
+                <div class="reviewer">Michael Otieno</div>
+                <div class="reviewer-title">Small Business Owner</div>
+            </div>
+            
+            <!-- Review 3 -->
+            <div class="review-card">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">"As a content creator, the 14 Days package gives me enough data at an unbeatable price. Activation is instant too!"</p>
+                <div class="reviewer">Amina Mohammed</div>
+                <div class="reviewer-title">Content Creator</div>
+            </div>
+        </div>
+    </section>
+    
+    <hr>
+    
+    <!-- Why Choose Us Section -->
+    <section class="why-choose">
+        <div class="section-title">
+            <h2>Why Choose StarNet Kenya</h2>
+        </div>
+        
+        <div class="features">
+            <!-- Feature 1 -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3>Fast Speeds</h3>
+                <p>Enjoy high-speed internet connectivity across all networks in Kenya with our optimized packages.</p>
+            </div>
+            
+            <!-- Feature 2 -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-money-bill-wave"></i>
+                </div>
+                <h3>Affordable Rates</h3>
+                <p>Our packages offer the best value for money with competitive pricing and generous data allocations.</p>
+            </div>
+            
+            <!-- Feature 3 -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h3>Instant Activation</h3>
+                <p>Get connected within minutes after payment confirmation. No long waiting periods.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Payment Instructions Modal -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h2>Payment Instructions</h2>
+            <p id="selectedPackage" style="font-weight: bold; color: var(--primary); text-align: center; margin-bottom: 15px;"></p>
+            
+            <div class="till-container">
+
+            </div>
+            
+            <button class="collapsible" onclick="toggleCollapsible()">Show Payment Instructions</button>
+            <div class="collapsible-content" id="instructionsContent">
+                <div class="instructions">
+                    <h3>How to pay via M-Pesa</h3>
+                    <ol>
+
+                <li>you are in payment page</li>
+                <li>Proceed by clicking the botton below</li>
+                <li>you'll be redirected to secure payment platform</li>
+                <li>Enter yor phone number, name</li>
+                <li>Complete payment by entering mpesa pin when prompted</li>
                 <li>Your data will be activated automatically</li>
                 <li>Service delivered to your payment phone number</li>
-            </ol>
-        </div>
-
-        <div class="btn-container">
-            <button class="payment-btn" onclick="processPayment(this, 'https://short.payhero.co.ke/s/42Dm3UEgMSbfKtRbHVg7VB')">
-                24 Hours - 2GB (Ksh 49)
+                    </ol>
+                    
+                    <p style="margin-top: 15px; font-style: italic; color: #666;">
+                        <i class="fas fa-info-circle" style="color: var(--primary);"></i> 
+                        If any issues occur, contact support with your payment confirmation message.
+                    </p>
+                </div>
+            </div>
+            
+            <button class="proceed-btn" onclick="proceedToPayment()">
+                <i class="fas fa-check"></i> Proceed to Payment
             </button>
-            <button class="payment-btn" onclick="processPayment(this, 'https://short.payhero.co.ke/s/3epcrazY4KomASwSfFhkxY')">
-                7 Days - 15GB (Ksh 199)
-            </button>
-            <button class="payment-btn" onclick="processPayment(this, 'https://short.payhero.co.ke/s/fmkXqPwm3VUz5zSBCcVGkC')">
-                21 Days - 35GB (Ksh 349)
-            </button>
-            <button class="payment-btn" onclick="processPayment(this, 'https://short.payhero.co.ke/s/LYGYaSaHZCb4VDBD8SJJd9')">
-                30 Days - 50GB (Ksh 559)
-            </button>
-            <button class="payment-btn" onclick="processPayment(this, 'https://short.payhero.co.ke/s/hBYbw5xenLfaA2wGM4EPNH')">
-                6 Months - Unlimited (Ksh 999)
-            </button>
-        </div>
-
-        <div class="inquiry">
-            <p>Need help with your purchase?</p>
-            <a href="mailto:starrlinkhelp@gmail.com" class="email">starlinksupport</a>
         </div>
     </div>
+    
+    <!-- Toast notification -->
+    <div id="toast" class="toast">
+        <i class="fas fa-check-circle"></i>
+        <span>Till number copied to clipboard!</span>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>StarNet Kenya</h3>
+                <p>Providing affordable and reliable internet packages across Kenya since 2020. Connecting you to what matters most.</p>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#packages">Packages</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contact Info</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-envelope"></i> <a href="mailto:starnethelpline@gmail.com">Contact us</a></li>
+                    <li><i class="fas fa-clock"></i> Support: 24/7</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 StarNet Kenya. All Rights Reserved.</p>
+        </div>
+    </footer>
 
     <script>
-        function processPayment(button, url) {
-            // Save original button content
-            const originalText = button.innerHTML;
+        // Store the redirect URL globally
+        let redirectUrl = '';
+        
+        // Show payment instructions modal with package-specific redirect URL
+        function showPaymentInstructions(packageName, url) {
+            redirectUrl = url; // Store the URL for this package
+            const modal = document.getElementById('paymentModal');
+            document.getElementById('selectedPackage').textContent = packageName;
+            modal.style.display = 'flex';
             
-            // Disable button and show loading state
-            button.disabled = true;
-            button.innerHTML = "Processing Payment...";
-            
-            // Create and show loading spinner
-            const spinner = document.createElement("div");
-            spinner.classList.add("loading-spinner");
-            button.appendChild(spinner);
-            spinner.style.display = "inline-block";
-            
-            // Simulate processing delay
+            // Reset animation
+            const modalContent = modal.querySelector('.modal-content');
+            modalContent.style.animation = 'none';
             setTimeout(() => {
-                // Redirect to payment URL
-                window.location.href = url;
-                
-                // In case redirect fails, restore button after 8 seconds
-                setTimeout(() => {
-                    button.disabled = false;
-                    button.innerHTML = originalText;
-                    spinner.remove();
-                }, 8000);
+                modalContent.style.animation = 'modalOpen 0.3s forwards';
+            }, 10);
+            
+            // Collapse instructions by default on mobile
+            if (window.innerWidth <= 768) {
+                const content = document.getElementById('instructionsContent');
+                content.style.maxHeight = '0';
+                const collapsible = document.querySelector('.collapsible');
+                collapsible.classList.remove('active');
+                collapsible.innerHTML = 'Show Payment Instructions <span style="float:right;">+</span>';
+            } else {
+                // Expand by default on desktop
+                const content = document.getElementById('instructionsContent');
+                content.style.maxHeight = content.scrollHeight + 'px';
+                const collapsible = document.querySelector('.collapsible');
+                collapsible.classList.add('active');
+                collapsible.innerHTML = 'Hide Payment Instructions <span style="float:right;">−</span>';
+            }
+        }
+        
+        // Proceed to payment after instructions
+        function proceedToPayment() {
+            if (redirectUrl) {
+                window.location.href = redirectUrl;
+            }
+            closeModal();
+        }
+        
+        // Toggle collapsible instructions
+        function toggleCollapsible() {
+            const collapsible = document.querySelector('.collapsible');
+            collapsible.classList.toggle('active');
+            const content = document.getElementById('instructionsContent');
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                collapsible.innerHTML = 'Show Payment Instructions <span style="float:right;">+</span>';
+            } else {
+                content.style.maxHeight = content.scrollHeight + 'px';
+                collapsible.innerHTML = 'Hide Payment Instructions <span style="float:right;">−</span>';
+            } 
+        }
+        
+        // Close modal
+        function closeModal() {
+            document.getElementById('paymentModal').style.display = 'none';
+        }
+        
+        // Copy till number to clipboard
+        function copyTillNumber() {
+            const tillNumber = document.getElementById('tillNumber').textContent;
+            navigator.clipboard.writeText(tillNumber).then(() => {
+                showToast();
+            });
+        }
+        
+        // Show toast notification
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
             }, 3000);
         }
         
-        // Toggle instructions visibility
-        const toggleBtn = document.getElementById('toggleInstructions');
-        const instructions = document.getElementById('instructions');
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('paymentModal')) {
+                closeModal();
+            }
+        }
         
-        toggleBtn.addEventListener('click', () => {
-            instructions.classList.toggle('show');
-            toggleBtn.classList.toggle('active');
-        });
-        
-        // Add animation to buttons on page load
+        // Add animation to package buttons on page load
         document.addEventListener('DOMContentLoaded', () => {
-            const buttons = document.querySelectorAll('.payment-btn');
+            const buttons = document.querySelectorAll('.package-btn');
             buttons.forEach((btn, index) => {
                 setTimeout(() => {
                     btn.style.opacity = '1';
